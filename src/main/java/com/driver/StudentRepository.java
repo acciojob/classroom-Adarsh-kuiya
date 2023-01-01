@@ -33,13 +33,15 @@ public class StudentRepository {
     }
 
     public List<String> getStudentsByTeacherName(String teacherName){
-        List<String> listStudent= new ArrayList<>();
-       for(String student:studentTeacherDb.keySet()){
-       if(studentTeacherDb.get(student).equals(teacherName)){
-     listStudent.add(student);
-       }
-       }
-   return listStudent; }
+        List<String> studentList = new ArrayList<>();
+        for (String student : studentTeacherDb.keySet()) {
+            if (studentTeacherDb.get(student).equals(teacherName)) {
+                studentList.add(student);
+            }
+        }
+
+        return studentList;
+    }
     public List<String> getAllStudents(){
     return new ArrayList<>(studentDb.keySet());
     }

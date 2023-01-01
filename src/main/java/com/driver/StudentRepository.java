@@ -21,14 +21,7 @@ public class StudentRepository {
     }
 
     public void addStudentTeacherPair(String student, String teacher){
-        if(studentDb.containsKey(student) && teacherDB.containsKey(teacher))
-       {
-     List<String> student_Teacher = new ArrayList<>();
-    if(studentTeacherDb.containsKey(teacher)) student_Teacher=studentTeacherDb.get(teacher);
-    student_Teacher.add(student);
-    studentTeacherDb.put(teacher,student_Teacher);
-
-       }
+        studentTeacherDb.put(student, teacher);
     }
 
     public Student getStudentByName(String studentName){

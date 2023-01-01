@@ -47,13 +47,28 @@ public class StudentRepository {
     }
 
     public void delete_teacher_by_name(String teacherName){
-        if(teacherDB.containsKey(teacherName))
-        teacherDB.remove(teacherName);
+        for (String studentName : studentTeacherDb.keySet()) {
+            if (studentTeacherDb.get(studentName) == teacherName) {
+                if (studentDb.containsKey(studentName)) {
+                    studentDb.remove(studentName);
+                }
+                if (teacherDB.containsKey(teacherName)) {
+                    teacherDB.remove(teacherName);
+                }
+            }
+        }
     }
 
     public void deleteAllTeachers(){
-      teacherDB.clear();
+ for (String studentName : studentTeacherDb.keySet()) {
+        if (studentDb.containsKey(studentName)) {
+            studentDb.remove(studentName);
+        }
+        if (teacherDB.containsKey(studentTeacherDb.get(studentName))) {
+            teacherDB.remove(studentTeacherDb.get(studentName));
+        }
     }
 
+}
 
 }

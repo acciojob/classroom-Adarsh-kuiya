@@ -1,7 +1,9 @@
 package com.driver;
+import org.springframework.stereotype.Component;
 import org.springframework.stereotype.Repository;
 import java.util.*;
 @Repository
+@Component
 public class StudentRepository {
     private HashMap<String,Student>studentDb;
     private HashMap<String,Teacher>teacherDB;

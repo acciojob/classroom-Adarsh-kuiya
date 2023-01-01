@@ -5,7 +5,7 @@ import java.util.*;
 public class StudentRepository {
     private HashMap<String,Student>studentDb;
     private HashMap<String,Teacher>teacherDB;
-    private HashMap<String,List<String>>studentTeacherDb;
+    private HashMap<String,String>studentTeacherDb;
 
     public StudentRepository(){
     studentDb=new HashMap<>();
@@ -34,9 +34,12 @@ public class StudentRepository {
 
     public List<String> getStudentsByTeacherName(String teacherName){
         List<String> listStudent= new ArrayList<>();
-        if(studentTeacherDb.containsKey(teacherName)) listStudent=studentTeacherDb.get(teacherName);
-        return listStudent;
-    }
+       for(String student:studentTeacherDb.keySet()){
+       if(studentTeacherDb.get(student).equals(teacherName)){
+     listStudent.add(student);
+       }
+       }
+   return listStudent; }
     public List<String> getAllStudents(){
     return new ArrayList<>(studentDb.keySet());
     }
